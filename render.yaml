@@ -16,7 +16,7 @@ services:
         value: "*" # Allowing all origins for the hackathon demo to ensure frontend connects
 
   - type: web
-    name: disaster-frontend
+    name: disaster-ui
     env: node
     buildCommand: "cd frontend && npm install && npm run build && npm install -g serve"
     startCommand: "serve -s frontend/dist -l $PORT"
