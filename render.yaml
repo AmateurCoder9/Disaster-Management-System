@@ -17,9 +17,9 @@ services:
 
   - type: web
     name: disaster-frontend
-    env: static
-    buildCommand: "cd frontend && npm install && npm run build"
-    staticPublishPath: "./frontend/dist"
+    env: node
+    buildCommand: "cd frontend && npm install && npm run build && npm install -g serve"
+    startCommand: "serve -s frontend/dist -l $PORT"
     envVars:
       - key: NODE_VERSION
         value: 20.0.0
@@ -28,7 +28,3 @@ services:
           type: web
           name: disaster-api
           envVarKey: RENDER_EXTERNAL_URL
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
