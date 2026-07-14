@@ -15,9 +15,9 @@ services:
       - key: CORS_ORIGINS
         value: "*" # Allowing all origins for the hackathon demo to ensure frontend connects
 
-  - type: static
+  - type: web
     name: disaster-frontend
-    plan: free
+    env: static
     buildCommand: "cd frontend && npm install && npm run build"
     staticPublishPath: "./frontend/dist"
     envVars:
